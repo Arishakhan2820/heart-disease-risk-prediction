@@ -1,0 +1,136 @@
+{
+  "data_quality": {
+    "shape": [
+      1025,
+      14
+    ],
+    "dtypes": {
+      "age": "int64",
+      "sex": "int64",
+      "cp": "int64",
+      "trestbps": "int64",
+      "chol": "int64",
+      "fbs": "int64",
+      "restecg": "int64",
+      "thalach": "int64",
+      "exang": "int64",
+      "oldpeak": "float64",
+      "slope": "int64",
+      "ca": "int64",
+      "thal": "int64",
+      "target": "int64"
+    },
+    "missing_values": {
+      "age": 0,
+      "sex": 0,
+      "cp": 0,
+      "trestbps": 0,
+      "chol": 0,
+      "fbs": 0,
+      "restecg": 0,
+      "thalach": 0,
+      "exang": 0,
+      "oldpeak": 0,
+      "slope": 0,
+      "ca": 0,
+      "thal": 0,
+      "target": 0
+    },
+    "duplicate_rows": 723,
+    "unique_values": {
+      "age": 41,
+      "sex": 2,
+      "cp": 4,
+      "trestbps": 49,
+      "chol": 152,
+      "fbs": 2,
+      "restecg": 3,
+      "thalach": 91,
+      "exang": 2,
+      "oldpeak": 40,
+      "slope": 3,
+      "ca": 5,
+      "thal": 4,
+      "target": 2
+    },
+    "cleaned_shape": [
+      302,
+      14
+    ],
+    "rows_removed": 723,
+    "duplicate_policy": "Exact full-row duplicates were inspected by all-column equality and removed; raw data is retained unchanged."
+  },
+  "selection_rule": "Highest 5-fold CV ROC-AUC on training data; held-out test evaluated once only. Positive-class recall is reported because missed risk may be costly.",
+  "best_model": "logistic_regression",
+  "models": {
+    "logistic_regression": {
+      "cv_roc_auc": 0.9275,
+      "best_params": {
+        "model__C": 1
+      },
+      "final_test_metrics": {
+        "accuracy": 0.8689,
+        "precision": 0.9032,
+        "recall": 0.8485,
+        "f1": 0.875,
+        "roc_auc": 0.9048,
+        "classification_report": {
+          "0": {
+            "precision": 0.8333333333333334,
+            "recall": 0.8928571428571429,
+            "f1-score": 0.8620689655172413,
+            "support": 28.0
+          },
+          "1": {
+            "precision": 0.9032258064516129,
+            "recall": 0.8484848484848485,
+            "f1-score": 0.875,
+            "support": 33.0
+          },
+          "accuracy": 0.8688524590163934,
+          "macro avg": {
+            "precision": 0.8682795698924731,
+            "recall": 0.8706709956709957,
+            "f1-score": 0.8685344827586207,
+            "support": 61.0
+          },
+          "weighted avg": {
+            "precision": 0.8711440155120748,
+            "recall": 0.8688524590163934,
+            "f1-score": 0.8690644431882419,
+            "support": 61.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            25,
+            3
+          ],
+          [
+            5,
+            28
+          ]
+        ]
+      }
+    },
+    "random_forest": {
+      "cv_roc_auc": 0.9146,
+      "best_params": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 1,
+        "model__max_features": "sqrt",
+        "model__max_depth": 5
+      }
+    },
+    "xgboost": {
+      "cv_roc_auc": 0.9095,
+      "best_params": {
+        "model__subsample": 0.7,
+        "model__n_estimators": 300,
+        "model__max_depth": 2,
+        "model__learning_rate": 0.03,
+        "model__colsample_bytree": 0.7
+      }
+    }
+  }
+}

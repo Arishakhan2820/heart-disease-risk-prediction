@@ -1,0 +1,29 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+.package/
+.package-check/
+.pytest_cache/
+*.log
+data/private/
+data/uploads/
+# The reviewed best_model.pkl is intentionally versioned for the free Streamlit demo.
+# Never commit untrusted model files or sensitive data.
+reports/figures/*.png
+!reports/figures/.gitkeep
+DEPLOYMENT_SECURITY.md
+LICENSE
+POWERSHELL_GUIDE.md
+PRIVATE_FILES.md
+STREAMLIT_FREE_DEPLOY.md
+
+
